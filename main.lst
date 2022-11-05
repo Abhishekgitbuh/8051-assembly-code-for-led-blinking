@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 10/19/2022 20:22:22 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.asm SET(SMALL) DEBUG PRINT(.\Listings\main.lst) OBJECT(.\Objects\m
+                      ain.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 00H
+0000 802E              2     SJMP START
+0030                   3     ORG 30H
+0030                   4             START:
+0030 75A000            5             MOV P2, #00H
+0033                   6             AGAIN:
+0033 75A0AA            7             MOV P2, #0AAH
+0036 1170              8             ACALL DELAY
+0038 75A055            9             MOV P2, #55H
+003B 1170             10             ACALL DELAY
+003D 80F4             11             SJMP AGAIN
+                      12             
+0070                  13             ORG 70H
+0070                  14                     DELAY:
+0070 7A08             15                     MOV R2, #08H
+0072                  16                     BACK2:
+0072 79FF             17                     MOV R1, #0FFH
+0074                  18                     BACK1:
+0074 78FF             19                     MOV R0, #0FFH
+0076                  20                     BACK:
+0076 00               21                     NOP
+0077 D8FD             22                     DJNZ R0, BACK
+0079 D9F9             23                     DJNZ R1, BACK1
+007B DAF5             24                     DJNZ R2, BACK2
+007D 22               25                     RET
+                      26                     END
+A51 MACRO ASSEMBLER  MAIN                                                                 10/19/2022 20:22:22 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   0033H   A   
+BACK . . . . . . .  C ADDR   0076H   A   
+BACK1. . . . . . .  C ADDR   0074H   A   
+BACK2. . . . . . .  C ADDR   0072H   A   
+DELAY. . . . . . .  C ADDR   0070H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
